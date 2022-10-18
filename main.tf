@@ -35,6 +35,7 @@ module "autoscaling" {
   target_group_arn = module.elb.alb_target_group_arn
   dev-vpc          = module.vpc.aws_vpc_id
 }
+
 module "database" {
   source      = "./database"
   db_instance = "db.t2.micro"

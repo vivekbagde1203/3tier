@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_instance" "web" {
   count = 2
-  ami = "ami-0c17b6e26919642e9"
+  ami = "ami-0851b76e8b1bce90b"
   instance_type = var.instancetype
   key_name = aws_key_pair.keypair.id
   vpc_security_group_ids = [var.securitygroup]

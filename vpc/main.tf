@@ -19,13 +19,13 @@ resource "aws_internet_gateway" "dev-igw" {
     Name = "dev-igw"
   }
 }
-
+/*
 #Attaching Internet Gateway to VPC
 resource "aws_internet_gateway_attachment" "igw-attach-vpc" {
   internet_gateway_id = aws_internet_gateway.dev-igw.id
   vpc_id              = aws_vpc.dev-vpc.id
 }
-
+*/
 #Create Public Route Table
 resource "aws_route_table" "public-route-table" {
   vpc_id = aws_vpc.dev-vpc.id

@@ -34,7 +34,10 @@ resource "aws_lb" "dev-alb" {
 
     security_groups    = [aws_security_group.lb-sg.id]
     
-    subnets            = ["var.subnet1","var.subnet2"]
+    subnets = [
+        "${var.subnet1}",
+        "${var.subnet2}",
+    ]
 
     #access_logs {
     #    bucket  = aws_s3_bucket.lb_logs.bucket
@@ -43,7 +46,7 @@ resource "aws_lb" "dev-alb" {
     #}
 
     tags = {
-        Environment = "dev"
+        Name = "my-test-alb"
     }
 }
 resource "aws_lb_listener" "front_end" {

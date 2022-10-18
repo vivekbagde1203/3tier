@@ -1,6 +1,6 @@
 resource "aws_launch_configuration" "my-auto-dev" {
     name          = "my-auto-dev"
-    image_id      = "ami-0c17b6e26919642e9"
+    image_id      = "ami-0851b76e8b1bce90b"
     instance_type = "t2.micro"
     user_data = <<-EOF
                 #!/bin/bash
@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "myautoscale-dev" {
     #force_delete              = true
     launch_configuration      = aws_launch_configuration.my-auto-dev.name
     #vpc_zone_identifier      = [aws_subnet.example1.id, aws_subnet.example2.id]
-    vpc_zone_identifier       = ["var.subnet1","var.subnet2"]
+    vpc_zone_identifier       = ["${var.subnet1}","${var.subnet2}"]
     target_group_arns         = ["${var.target_group_arn}"]
     tag {
         key                 = "Name"
