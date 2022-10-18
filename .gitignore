@@ -3,6 +3,6 @@
 id_rsa
 id_rsa.pub
 poc
-poc_pub
+poc.pub
 terraform.tfstate
 terraform.tfstate.backup
