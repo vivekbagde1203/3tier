@@ -11,11 +11,11 @@ module "vpc" {
 }
 
 module "ec2" {
-  source        = "./ec2"
-  my-public-key = "./id_rsa.pub"
-  instancetype  = "t2.micro"
-  securitygroup = module.vpc.security_group
-  subnet        = module.vpc.subnet
+  source         = "./ec2"
+  my-public-key  = "./id_rsa.pub"
+  instancetype   = "t2.micro"
+  securitygroup  = module.vpc.security_group
+  subnet         = module.vpc.subnet
   subnet-private = module.vpc.subnet-private
 }
 
@@ -25,8 +25,12 @@ module "elb" {
   dev-vpc      = module.vpc.aws_vpc_id
   instance1_id = module.ec2.instance1
   instance2_id = module.ec2.instance2
+  instance3_id = module.ec2.instance3
+  instance4_id = module.ec2.instance4
   subnet1      = module.vpc.subnet11
   subnet2      = module.vpc.subnet22
+  subnet3      = module.vpc.private-subnet1
+  subnet4      = module.vpc.private-subnet2
 }
 /*
 module "autoscaling" {
