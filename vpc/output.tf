@@ -10,6 +10,10 @@ output "security_group" {
 output "subnet" {
   value = "${aws_subnet.public-subnet.*.id}"
 }
+output "subnet-private" {
+  value = "${aws_subnet.private-subnet.*.id}"
+}
+
 output "subnet11" {
   value = "${element(aws_subnet.public-subnet.*.id, 1 )}"
 }

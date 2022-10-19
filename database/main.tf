@@ -8,7 +8,7 @@ resource "aws_db_instance" "my-test-sql" {
     allocated_storage       = 20
     #name                    = "dev-rds"
     username                = "admin"
-    password                = "India123"
+    password                = "admin123"
     #apply_immediately       = "true"
     skip_final_snapshot     = true
     db_subnet_group_name    = "${aws_db_subnet_group.my-rds-db-subnet.name}"

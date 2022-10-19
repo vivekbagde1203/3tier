@@ -16,6 +16,7 @@ module "ec2" {
   instancetype  = "t2.micro"
   securitygroup = module.vpc.security_group
   subnet        = module.vpc.subnet
+  subnet-private = module.vpc.subnet-private
 }
 
 module "elb" {
@@ -27,7 +28,7 @@ module "elb" {
   subnet1      = module.vpc.subnet11
   subnet2      = module.vpc.subnet22
 }
-
+/*
 module "autoscaling" {
   source           = "./autoscaling"
   subnet1          = module.vpc.subnet11
@@ -35,7 +36,7 @@ module "autoscaling" {
   target_group_arn = module.elb.alb_target_group_arn
   dev-vpc          = module.vpc.aws_vpc_id
 }
-
+*/
 module "database" {
   source      = "./database"
   db_instance = "db.t2.micro"
