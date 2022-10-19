@@ -151,7 +151,7 @@ resource "aws_security_group_rule" "inbound-http-backend" {
     to_port           = 80
     protocol          = "tcp"
     cidr_blocks       = ["0.0.0.0/0"]
-    security_group_id = "${aws_security_group.lb-sg.id}"
+    security_group_id = "${aws_security_group.lb-sg-backend.id}"
 }
 resource "aws_security_group_rule" "outbound-all-backend" {
     type              = "egress"
@@ -159,5 +159,5 @@ resource "aws_security_group_rule" "outbound-all-backend" {
     to_port           = 0
     protocol          = "-1"
     cidr_blocks       = ["0.0.0.0/0"]
-    security_group_id = "${aws_security_group.lb-sg.id}"
+    security_group_id = "${aws_security_group.lb-sg-backend.id}"
 }
